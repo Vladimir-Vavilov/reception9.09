@@ -44,6 +44,19 @@ def create_shop_list():
     return shop_list
 
 
+def update_shoplist(my_cook_book, ingrigient_name, measure):
+    if ingrigient_name in my_cook_book:
+        my_cook_book[ingrigient_name].append(measure)
+    else:
+        new_key = 2 * ingrigient_name
+        if new_key in my_cook_book:
+            # Если новый ключ существует, добавляем значение value в связанный с ним список.
+            my_cook_book[new_key].append(measure)
+        else:
+            my_cook_book[new_key] = [measure]
+    return update_shoplist(my_cook_book)
+
+
 def get_shop_list_by_dishes(dishes, person_count):
     shop_list = {}
     my_cookbook = my_cook_book()
@@ -62,3 +75,4 @@ def get_shop_list_by_dishes(dishes, person_count):
 
 
 pprint(create_shop_list())
+
