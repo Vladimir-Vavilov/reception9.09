@@ -50,7 +50,6 @@ def update_shoplist(my_cook_book, ingrigient_name, measure):
     else:
         new_key = 2 * ingrigient_name
         if new_key in my_cook_book:
-            # Если новый ключ существует, добавляем значение value в связанный с ним список.
             my_cook_book[new_key].append(measure)
         else:
             my_cook_book[new_key] = [measure]
