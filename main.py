@@ -36,8 +36,8 @@ def my_cook_book():
 
 def create_shop_list():
     person_count = int(input('Введите количество человек: '))
-    dishes = input('Введите блюдо: ') \
-        .capitalize().split(', ')
+    dishes = input('Введите блюдо: ').split(', ')
+    dishes = [dish.capitalize() for dish in dishes]
 
     shop_list = get_shop_list_by_dishes(dishes, person_count)
 
@@ -53,7 +53,7 @@ def update_shoplist(my_cook_book, ingrigient_name, measure):
             my_cook_book[new_key].append(measure)
         else:
             my_cook_book[new_key] = [measure]
-    return update_shoplist(my_cook_book)
+
 
 
 def get_shop_list_by_dishes(dishes, person_count):
@@ -70,8 +70,11 @@ def get_shop_list_by_dishes(dishes, person_count):
                 shop_list[ingredient_name] += quantity
             else:
                 shop_list[ingredient_name] = quantity
-        return shop_list
+    return shop_list
 
 
 pprint(create_shop_list())
 
+print(get_shop_list_by_dishes(["Омлет", "Омлет"],2))
+person_count = 2
+dishes = ['Омлет', 'Омлет']
